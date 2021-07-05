@@ -1,3 +1,4 @@
 assets/*
 sessions/*
 protected/runtime/*
+protected/config/database.php
