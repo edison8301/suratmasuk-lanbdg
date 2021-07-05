@@ -60,6 +60,7 @@ class SiteController extends CController
 
 		if(Yii::app()->user->isGuest)
 		{
+		    return $this->redirect(['/site/login']);
 			if(Yii::app()->request->hostInfo!='http://suratmasuk.bandung.lan.go.id') {
 				//$this->redirect('http://192.185.144.108/~bandungl/index.php?p=login-failed');	
 				$this->redirect('http://bandung.lan.go.id/index.php?p=login-failed');

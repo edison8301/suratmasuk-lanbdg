@@ -31,8 +31,11 @@
 		$logoutUrl = 'http://192.185.144.108/~bandungl/index.php?r=site/logout';	
 	} else {
 		$appUrl = 'http://bandung.lan.go.id/index.php?r=application/index';
-		$logoutUrl = 'http://bandung.lan.go.id/index.php?r=site/logout';
+        $logoutUrl = 'http://bandung.lan.go.id/index.php?r=site/logout';
 	}
+
+    $logoutUrl = ['/site/logout'];
+
 ?>
 
 <?php $this->widget('booster.widgets.TbNavbar',array(
@@ -44,7 +47,7 @@
 					'class' => 'booster.widgets.TbMenu',
 					'type' => 'navbar',
 					'items' => array(
-						array('label' => 'Aplikasi','icon'=>'th-list', 'url' => $appUrl),
+						//array('label' => 'Aplikasi','icon'=>'th-list', 'url' => $appUrl),
 						array('label' => 'Tutorial','icon'=>'book', 'url' => 'https://www.youtube.com/watch?v=8r_3M3X2w7s','linkOptions'=>array('target'=>'_blank')),
 						array('label' => 'Logout ('.Yii::app()->user->id.')','icon'=>'off','url'=>$logoutUrl,'visible'=>!Yii::app()->user->isGuest)
 					)
