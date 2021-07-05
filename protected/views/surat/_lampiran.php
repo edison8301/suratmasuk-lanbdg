@@ -1,7 +1,8 @@
 <?php
 
-$baseUrl = Yii::app()->request->baseUrl;
-$baseUrl = "http://suratmasuk.bandung.lan.go.id/v2";
+$baseUrlLokal = Yii::app()->request->baseUrl;
+$baseUrlRemote = "http://suratmasuk.bandung.lan.go.id/v2";
+$basePath = Yii::app()->basePath.'/../uploads/surat/';
 
 ?>
 
@@ -10,11 +11,22 @@ $baseUrl = "http://suratmasuk.bandung.lan.go.id/v2";
 <h2>Lampiran 1</h2>
 
 <?php if(substr($model->lampiran_1,-3)=='pdf' OR substr($model->lampiran_1,-3)=='PDF') {
-	
-	print '<iframe frameborder="0" width="100%" height="500px" src='.$baseUrl.'/uploads/surat/'.$model->lampiran_1.'></iframe>';
+
+    $baseUrlEfektif = $baseUrlRemote;
+    if(file_exists($basePath.$model->lampiran_1)) {
+        $baseUrlEfektif = $baseUrlLokal;
+    }
+
+	print '<iframe frameborder="0" width="100%" height="500px" src='.$baseUrlEfektif.'/uploads/surat/'.$model->lampiran_1.'></iframe>';
 
 } else {
-	print CHtml::image(Yii::app()->baseUrl."/uploads/surat/".$model->lampiran_1,'',array('class'=>'img-responsive'));
+
+    $baseUrlEfektif = $baseUrlRemote;
+    if(file_exists($basePath.$model->lampiran_1)) {
+        $baseUrlEfektif = $baseUrlLokal;
+    }
+
+	print CHtml::image($baseUrlEfektif."/uploads/surat/".$model->lampiran_1,'',array('class'=>'img-responsive'));
 } ?>
 
 <div style="margin-top:5px">
@@ -30,11 +42,22 @@ $baseUrl = "http://suratmasuk.bandung.lan.go.id/v2";
 <h2>Lampiran 2</h2>
 
 <?php if(substr($model->lampiran_2,-3)=='pdf' OR substr($model->lampiran_2,-3)=='PDF') {
-	
-	print '<iframe frameborder="0" width="100%" height="600px" src='.$baseUrl.'/uploads/surat/'.$model->lampiran_2.'></iframe>';
+
+    $baseUrlEfektif = $baseUrlRemote;
+    if(file_exists($basePath.$model->lampiran_2)) {
+        $baseUrlEfektif = $baseUrlLokal;
+    }
+
+	print '<iframe frameborder="0" width="100%" height="600px" src='.$baseUrlEfektif.'/uploads/surat/'.$model->lampiran_2.'></iframe>';
 
 } else {
-	print CHtml::image(Yii::app()->baseUrl."/uploads/surat/".$model->lampiran_2,'',array('class'=>'img-responsive'));
+
+    $baseUrlEfektif = $baseUrlRemote;
+    if(file_exists($basePath.$model->lampiran_2)) {
+        $baseUrlEfektif = $baseUrlLokal;
+    }
+
+	print CHtml::image($baseUrlEfektif."/uploads/surat/".$model->lampiran_2,'',array('class'=>'img-responsive'));
 } ?>
 
 <div style="margin-top:5px">
@@ -49,11 +72,22 @@ $baseUrl = "http://suratmasuk.bandung.lan.go.id/v2";
 <h2>Lampiran 3</h2>
 
 <?php if(substr($model->lampiran_3,-3)=='pdf') {
-	
-	print '<iframe frameborder="0" width="100%" height="500px" src='.$baseUrl.'/uploads/surat/'.$model->lampiran_3.'></iframe>';
+
+    $baseUrlEfektif = $baseUrlRemote;
+    if(file_exists($basePath.$model->lampiran_3)) {
+        $baseUrlEfektif = $baseUrlLokal;
+    }
+
+	print '<iframe frameborder="0" width="100%" height="500px" src='.$baseUrlEfektif.'/uploads/surat/'.$model->lampiran_3.'></iframe>';
 
 } else {
-	print CHtml::image(Yii::app()->baseUrl."/uploads/surat/".$model->lampiran_3,'',array('class'=>'img-responsive'));
+
+    $baseUrlEfektif = $baseUrlRemote;
+    if(file_exists($basePath.$model->lampiran_3)) {
+        $baseUrlEfektif = $baseUrlLokal;
+    }
+
+	print  CHtml::image($baseUrlEfektif."/uploads/surat/".$model->lampiran_3,'',array('class'=>'img-responsive'));
 } ?>
 
 <div style="margin-top:5px">
