@@ -1,4 +1,9 @@
+<?php
 
+$baseUrl = Yii::app()->request->baseUrl;
+$baseUrl = "http://suratmasuk.bandung.lan.go.id/v2";
+
+?>
 
 <?php if($model->lampiran_1 != null) { ?>
 
@@ -6,7 +11,7 @@
 
 <?php if(substr($model->lampiran_1,-3)=='pdf' OR substr($model->lampiran_1,-3)=='PDF') {
 	
-	print '<iframe frameborder="0" width="100%" height="500px" src='.Yii::app()->request->baseUrl.'/uploads/surat/'.$model->lampiran_1.'></iframe>';
+	print '<iframe frameborder="0" width="100%" height="500px" src='.$baseUrl.'/uploads/surat/'.$model->lampiran_1.'></iframe>';
 
 } else {
 	print CHtml::image(Yii::app()->baseUrl."/uploads/surat/".$model->lampiran_1,'',array('class'=>'img-responsive'));
@@ -26,7 +31,7 @@
 
 <?php if(substr($model->lampiran_2,-3)=='pdf' OR substr($model->lampiran_2,-3)=='PDF') {
 	
-	print '<iframe frameborder="0" width="100%" height="600px" src='.Yii::app()->request->baseUrl.'/uploads/surat/'.$model->lampiran_2.'></iframe>';
+	print '<iframe frameborder="0" width="100%" height="600px" src='.$baseUrl.'/uploads/surat/'.$model->lampiran_2.'></iframe>';
 
 } else {
 	print CHtml::image(Yii::app()->baseUrl."/uploads/surat/".$model->lampiran_2,'',array('class'=>'img-responsive'));
@@ -45,7 +50,7 @@
 
 <?php if(substr($model->lampiran_3,-3)=='pdf') {
 	
-	print '<iframe frameborder="0" width="100%" height="500px" src='.Yii::app()->request->baseUrl.'/uploads/surat/'.$model->lampiran_3.'></iframe>';
+	print '<iframe frameborder="0" width="100%" height="500px" src='.$baseUrl.'/uploads/surat/'.$model->lampiran_3.'></iframe>';
 
 } else {
 	print CHtml::image(Yii::app()->baseUrl."/uploads/surat/".$model->lampiran_3,'',array('class'=>'img-responsive'));
