@@ -1,4 +1,11 @@
-<?php /* @var $this Controller */ ?>
+<?php
+
+/* @var $this Controller */
+
+$logoutUrl = 'http://bandung.lan.go.id/index.php?r=site/logout';
+$logoutUrl = ['/site/logout'];
+
+?>
 
 <?php $this->beginContent('//layouts/main'); ?>
 
@@ -40,7 +47,7 @@
 
 				),'visible'=>User::isAdmin()),
 
-				array('label'=>'Logout ('.Yii::app()->user->id.')','url'=>'http://bandung.lan.go.id/index.php?r=site/logout','icon'=>'off','visible'=>!Yii::app()->user->isGuest),
+				array('label'=>'Logout ('.Yii::app()->user->id.')','url'=>$logoutUrl,'icon'=>'off','visible'=>!Yii::app()->user->isGuest),
 
 			)
 
